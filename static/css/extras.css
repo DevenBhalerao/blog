@@ -1,0 +1,10 @@
+.button-link {
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     /*border is optional*/
+      color:red;
+     cursor: pointer;
+     text-shadow: none !important;
+}

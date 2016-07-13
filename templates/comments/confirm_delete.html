@@ -1,0 +1,25 @@
+{% extends 'blogapp/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block head_extra %}
+{{ form.media }}
+{% endblock head_extra %}
+
+{% block content %}
+
+
+<div id="content">
+	<div class="inner">
+
+		<form method = "Post" action="" enctype="multipart/form-data">
+			{% csrf_token %}
+			<p>Are you sure you want to delete "{{object}}?" </p>
+			<input type="submit" value="Confirm"> </input>
+			<a href="{{ object.get_absolute_url }}"  value="Cancel" >Cancel</a>
+		</form>
+
+	</div>
+</div>
+{% endblock content %}
+
