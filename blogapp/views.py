@@ -1,5 +1,5 @@
 from django.views.generic import (DetailView, ListView, DeleteView,
-                                  FormView)
+  FormView)
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -70,82 +70,57 @@ def post_detail(request, slug=None):
         "content_type": instance.get_content_type,
         "object_id": instance.id,
     }
+    print "initial data is "
     print initial_data
-    comment_form = CommentForm(None)
-    if "comment_form" in request.POST:
-        comment_form = CommentForm(request.POST or None, initial=initial_data)
-        if comment_form.is_valid() and request.user.is_authenticated():
-            c_type = comment_form.cleaned_data.get("content_type")
-            print comment_form.cleaned_data
-            print "ctype is"
-            print c_type
-            content_type = ContentType.objects.get(model=c_type)
-            object_id = comment_form.cleaned_data.get("object_id")
-            content_data = comment_form.cleaned_data.get("content")
-            parent_obj = None
-            try:
-                # print request.POST.get("parent_id")
-                parent_id = int(request.POST.get("parent_id"))
-                # print "exception not thrown"
-            except:
-                # print "exception thrown"
-                parent_id = None
-            if parent_id:
-                # print "parent_id exists"
-                # print parent_id
-                parent_qs = Comment.objects.filter(id=parent_id)
-                # print parent_qs
-                if parent_qs.exists() and parent_qs.count() == 1:
-                    parent_obj = parent_qs.first()
-                    # print parent_obj
-            new_comment, created = Comment.objects.get_or_create(
-                user=request.user,
-                content_type=content_type,
-                object_id=object_id,
-                content=content_data,
-                parent=parent_obj,
-            )
+    comment_form = CommentForm(request.POST or None, initial=initial_data)
+    if comment_form.is_valid() and request.user.is_authenticated():
+        c_type = comment_form.cleaned_data.get("content_type")
+        print "cleaned data is"
+        print comment_form.cleaned_data
+        print "ctype is"
+        print c_type
+        content_type = ContentType.objects.get(model=c_type)
+        object_id = comment_form.cleaned_data.get("object_id")
+        content_data = comment_form.cleaned_data.get("content")
+        parent_obj = None
+        try:
+            # print request.POST.get("parent_id")
+            parent_id = int(request.POST.get("parent_id"))
+            # print "exception not thrown"
+        except:
+            # print "exception thrown"
+            parent_id = None
+        if parent_id:
+            # print "parent_id exists"
+            # print parent_id
+            parent_qs = Comment.objects.filter(id=parent_id)
+            # print parent_qs
+            if parent_qs.exists() and parent_qs.count() == 1:
+                parent_obj = parent_qs.first()
+                # print parent_obj
+        new_comment, created = Comment.objects.get_or_create(
+            user=request.user,
+            content_type=content_type,
+            object_id=object_id,
+            content=content_data,
+            parent=parent_obj,
+        )
+        if created:
             print new_comment
             return HttpResponseRedirect(
                 new_comment.content_object.get_absolute_url()
             )
-    else:
-        print initial_data
-        vote_form = VoteForm(request.POST or None, initial=initial_data)
-        if vote_form.is_valid() and request.user.is_authenticated():
-            # print vote_form.cleaned_data.get("content_type_upvote")
-            # print vote_form.cleaned_data.get("object_id_upvote")
-            c_type = vote_form.cleaned_data.get("content_type_upvote")
-            content_type = ContentType.objects.get(model=c_type)
-            object_id = vote_form.cleaned_data.get("object_id_upvote")
-            new_vote, created = Vote.objects.get_or_create(
-                user=request.user,
-                content_type=content_type,
-                object_id=object_id,
-            )
-            if created:
-                print " vote created "
-                print new_vote
-            if content_type == Post:
-                current_post = Post.objects.filter(object_id=object_id,
-                                                   submitter=request.user)
-                return HttpResponseRedirect(
-                    current_post.get_absolute_url()
-                )
-            elif content_type == Comment:
-                return HttpResponseRedirect(
-                    new_vote.content_object.content_object.get_absolute_url()
-                )
-        else:
-            print vote_form.errors
+    comments = instance.comments
     context = {
-        "title": instance.title,
         "instance": instance,
         "comments": comments,
         "comment_form": comment_form,
     }
     return render(request, "blogapp/detail.html", context)
 
+
+def vote_handler(request, slug=None):
+    pass
 
 # class CreateView(FormView):
 #     form_class = PostForm
@@ -201,8 +176,9 @@ class CreateUserView(FormView):
               "last_name",
               ]
 
-    def get_success_url(self, form):
-        user = authenticate(username=self.username, password=self.password)
-        if user is not None:
-            login(self.request, user)
-            return reverse_lazy('blogapp:list')
+
+def get_success_url(self, form):
+    user = authenticate(username=self.username, password=self.password)
+    if user is not None:
+        login(self.request, user)
+        return reverse_lazy('blogapp:list')
