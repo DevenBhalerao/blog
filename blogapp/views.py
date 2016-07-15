@@ -120,7 +120,16 @@ def post_detail(request, slug=None):
 
 
 def vote_handler(request, slug=None):
-    pass
+    if "upvote_form_comment" in request.POST:
+        content_type = Comment
+    else:
+        content_type = Post
+    instance = get_object_or_404(content_type, id=upvoted_object_id)
+    comments = Comment.objects.filter_by_instance(instance)
+    initial_data = {
+        "content_type": instance.get_content_type,
+        "object_id": instance.id,
+    }
 
 # class CreateView(FormView):
 #     form_class = PostForm

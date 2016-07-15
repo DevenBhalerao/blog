@@ -76,7 +76,7 @@
 												<input type="hidden" name="user" value="{{request.user}}">
 												<input type="hidden" name="content_type_upvote" value="{{ comment.get_content_type }}">												
 												<input type="hidden" name="object_id_upvote" value="{{ comment.get_id }}">					
-												<button type="submit" class="icon fa-heart button-link" form="upvote_form" value="Submit"> &nbsp{{ comment.vote_count }}</button>
+												<button type="submit" class="icon fa-heart button-link" name="upvote_form_comment" value="Submit"> &nbsp{{ comment.vote_count }}</button>
 											</form>
 											|
 											<small>via {{ comment.user }} | {{ comment.timestamp|timesince }} ago
