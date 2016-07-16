@@ -1,0 +1,350 @@
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.000) SELECT "blogapp_post"."id", "blogapp_post"."submitter_id", "blogapp_post"."title", "blogapp_post"."slug", "blogapp_post"."image", "blogapp_post"."width_field", "blogapp_post"."height_field", "blogapp_post"."content", "blogapp_post"."updated", "blogapp_post"."timestamp", "blogapp_post"."url" FROM "blogapp_post" WHERE "blogapp_post"."slug" = 'pic-1'; args=(u'pic-1',)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."model" = 'post' AND "django_content_type"."app_label" = 'blogapp'); args=('post', 'blogapp')
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "votes_vote"."id", "votes_vote"."user_id", "votes_vote"."content_type_id", "votes_vote"."object_id" FROM "votes_vote" WHERE ("votes_vote"."content_type_id" = 7 AND "votes_vote"."object_id" = 1); args=(7, 1)
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'ax8ys4vjr2selow6uhk9wdqyzwlpr03m' AND "django_session"."expire_date" > '2016-07-16 11:36:50.451000'); args=('ax8ys4vjr2selow6uhk9wdqyzwlpr03m', u'2016-07-16 11:36:50.451000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+Exception while resolving variable 'include_media' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [include_media] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=Unknown, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'wrapper_class' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [wrapper_class] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'html5_required' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [html5_required] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'error_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [error_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+(0.000) SELECT "comments_comment"."id", "comments_comment"."user_id", "comments_comment"."content_type_id", "comments_comment"."object_id", "comments_comment"."timestamp", "comments_comment"."content", "comments_comment"."parent_id" FROM "comments_comment" WHERE ("comments_comment"."content_type_id" = 7 AND "comments_comment"."object_id" = 1 AND "comments_comment"."parent_id" IS NULL) ORDER BY "comments_comment"."timestamp" DESC; args=(7, 1)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."model" = 'comment' AND "django_content_type"."app_label" = 'comments'); args=('comment', 'comments')
+(0.000) SELECT "votes_vote"."id", "votes_vote"."user_id", "votes_vote"."content_type_id", "votes_vote"."object_id" FROM "votes_vote" WHERE ("votes_vote"."content_type_id" = 8 AND "votes_vote"."object_id" = 21); args=(8, 21)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT COUNT(*) AS "__count" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 21; args=(21,)
+(0.000) SELECT "comments_comment"."id", "comments_comment"."user_id", "comments_comment"."content_type_id", "comments_comment"."object_id", "comments_comment"."timestamp", "comments_comment"."content", "comments_comment"."parent_id" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 21 ORDER BY "comments_comment"."timestamp" DESC; args=(21,)
+Exception while resolving variable 'include_media' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [include_media] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'wrapper_class' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [wrapper_class] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'html5_required' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [html5_required] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'error_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [error_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+(0.000) SELECT "votes_vote"."id", "votes_vote"."user_id", "votes_vote"."content_type_id", "votes_vote"."object_id" FROM "votes_vote" WHERE ("votes_vote"."content_type_id" = 8 AND "votes_vote"."object_id" = 20); args=(8, 20)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT COUNT(*) AS "__count" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 20; args=(20,)
+(0.000) SELECT "comments_comment"."id", "comments_comment"."user_id", "comments_comment"."content_type_id", "comments_comment"."object_id", "comments_comment"."timestamp", "comments_comment"."content", "comments_comment"."parent_id" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 20 ORDER BY "comments_comment"."timestamp" DESC; args=(20,)
+Exception while resolving variable 'include_media' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [include_media] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'wrapper_class' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [wrapper_class] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'html5_required' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [html5_required] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'error_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [error_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+(0.000) SELECT "votes_vote"."id", "votes_vote"."user_id", "votes_vote"."content_type_id", "votes_vote"."object_id" FROM "votes_vote" WHERE ("votes_vote"."content_type_id" = 8 AND "votes_vote"."object_id" = 19); args=(8, 19)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT COUNT(*) AS "__count" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 19; args=(19,)
+(0.000) SELECT "comments_comment"."id", "comments_comment"."user_id", "comments_comment"."content_type_id", "comments_comment"."object_id", "comments_comment"."timestamp", "comments_comment"."content", "comments_comment"."parent_id" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 19 ORDER BY "comments_comment"."timestamp" DESC; args=(19,)
+Exception while resolving variable 'include_media' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [include_media] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'wrapper_class' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [wrapper_class] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'html5_required' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [html5_required] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'error_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [error_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+(0.000) SELECT "votes_vote"."id", "votes_vote"."user_id", "votes_vote"."content_type_id", "votes_vote"."object_id" FROM "votes_vote" WHERE ("votes_vote"."content_type_id" = 8 AND "votes_vote"."object_id" = 18); args=(8, 18)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT COUNT(*) AS "__count" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 18; args=(18,)
+(0.000) SELECT "comments_comment"."id", "comments_comment"."user_id", "comments_comment"."content_type_id", "comments_comment"."object_id", "comments_comment"."timestamp", "comments_comment"."content", "comments_comment"."parent_id" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 18 ORDER BY "comments_comment"."timestamp" DESC; args=(18,)
+Exception while resolving variable 'include_media' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [include_media] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'wrapper_class' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [wrapper_class] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'html5_required' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [html5_required] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'error_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [error_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+(0.000) SELECT "votes_vote"."id", "votes_vote"."user_id", "votes_vote"."content_type_id", "votes_vote"."object_id" FROM "votes_vote" WHERE ("votes_vote"."content_type_id" = 8 AND "votes_vote"."object_id" = 16); args=(8, 16)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT COUNT(*) AS "__count" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 16; args=(16,)
+(0.000) SELECT COUNT(*) AS "__count" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 16; args=(16,)
+(0.000) SELECT COUNT(*) AS "__count" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 16; args=(16,)
+(0.000) SELECT "comments_comment"."id", "comments_comment"."user_id", "comments_comment"."content_type_id", "comments_comment"."object_id", "comments_comment"."timestamp", "comments_comment"."content", "comments_comment"."parent_id" FROM "comments_comment" WHERE "comments_comment"."parent_id" = 16 ORDER BY "comments_comment"."timestamp" DESC; args=(16,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+Exception while resolving variable 'include_media' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [include_media] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'wrapper_class' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [wrapper_class] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'html5_required' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [html5_required] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'error_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [error_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'help_text_inline' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [help_text_inline] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}, {}]"
+Exception while resolving variable 'tag' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [tag] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': <CommentForm bound=False, valid=False, fields=(content_type;object_id;content)>, 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}, {u'forloop': {u'revcounter0': 0, u'last': True, u'counter': 3, u'parentloop': {}, u'revcounter': 1, u'counter0': 2, u'first': False}, u'field': <django.forms.boundfield.BoundField object at 0x03713530>}, {}]"
+Internal Server Error: /vote/21/
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view blogapp.views.vote_handler didn't return an HttpResponse object. It returned None instead.
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+comment upvoted
+comment upvoted
+Exception while resolving variable 'instance' in template 'blogapp/detail.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [instance] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'csrf_token\': <SimpleLazyObject: <function _get_val at 0x0370A870>>, \'user\': <SimpleLazyObject: <function <lambda> at 0x03701330>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x037331B0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'WARNING\': 30, \'SUCCESS\': 25, \'ERROR\': 40}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x036F5B10>, u\'request\': <WSGIRequest: POST \'/vote/19/\'>}, {}, {\'block\': <Block Node: content. Contents: [<TextNode: u\'\\n\\n<div id="content">\\n\\t<di\'>, <Variable Node: instance.title>, <TextNode: u\'</h2>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <Variable Node: instance.timestamp>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t<p>Posted by \'>, <Variable Node: instance.submitter>, <TextNode: u\'</p>\\n\\t\\t\\t\\t\\t\\t\\t</header>\\n\\t\\t\\t\'>, <Variable Node: instance.vote_count>, <TextNode: u\'</a></li\\t\\t\\t\\t\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<div class="con\'>, <Variable Node: instance.content|safe>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <For Node: for comment in comments, tail_len: 25>, <TextNode: u\'\\n\\n\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\n\\t\\t\\t\\t\\t\\t\\t\'>]>}]'
+Exception while resolving variable 'instance' in template 'blogapp/detail.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [instance] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'csrf_token\': <SimpleLazyObject: <function _get_val at 0x0370A870>>, \'user\': <SimpleLazyObject: <function <lambda> at 0x03701330>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x037331B0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'WARNING\': 30, \'SUCCESS\': 25, \'ERROR\': 40}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x036F5B10>, u\'request\': <WSGIRequest: POST \'/vote/19/\'>}, {}, {\'block\': <Block Node: content. Contents: [<TextNode: u\'\\n\\n<div id="content">\\n\\t<di\'>, <Variable Node: instance.title>, <TextNode: u\'</h2>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <Variable Node: instance.timestamp>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t<p>Posted by \'>, <Variable Node: instance.submitter>, <TextNode: u\'</p>\\n\\t\\t\\t\\t\\t\\t\\t</header>\\n\\t\\t\\t\'>, <Variable Node: instance.vote_count>, <TextNode: u\'</a></li\\t\\t\\t\\t\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<div class="con\'>, <Variable Node: instance.content|safe>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <For Node: for comment in comments, tail_len: 25>, <TextNode: u\'\\n\\n\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\n\\t\\t\\t\\t\\t\\t\\t\'>]>}]'
+Exception while resolving variable 'instance' in template 'blogapp/detail.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [instance] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'csrf_token\': <SimpleLazyObject: <function _get_val at 0x0370A870>>, \'user\': <SimpleLazyObject: <function <lambda> at 0x03701330>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x037331B0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'WARNING\': 30, \'SUCCESS\': 25, \'ERROR\': 40}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x036F5B10>, u\'request\': <WSGIRequest: POST \'/vote/19/\'>}, {}, {\'block\': <Block Node: content. Contents: [<TextNode: u\'\\n\\n<div id="content">\\n\\t<di\'>, <Variable Node: instance.title>, <TextNode: u\'</h2>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <Variable Node: instance.timestamp>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t<p>Posted by \'>, <Variable Node: instance.submitter>, <TextNode: u\'</p>\\n\\t\\t\\t\\t\\t\\t\\t</header>\\n\\t\\t\\t\'>, <Variable Node: instance.vote_count>, <TextNode: u\'</a></li\\t\\t\\t\\t\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<div class="con\'>, <Variable Node: instance.content|safe>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <For Node: for comment in comments, tail_len: 25>, <TextNode: u\'\\n\\n\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\n\\t\\t\\t\\t\\t\\t\\t\'>]>}]'
+Exception while resolving variable 'instance' in template 'blogapp/detail.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [instance] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'csrf_token\': <SimpleLazyObject: <function _get_val at 0x0370A870>>, \'user\': <SimpleLazyObject: <function <lambda> at 0x03701330>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x037331B0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'WARNING\': 30, \'SUCCESS\': 25, \'ERROR\': 40}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x036F5B10>, u\'request\': <WSGIRequest: POST \'/vote/19/\'>}, {}, {\'block\': <Block Node: content. Contents: [<TextNode: u\'\\n\\n<div id="content">\\n\\t<di\'>, <Variable Node: instance.title>, <TextNode: u\'</h2>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <Variable Node: instance.timestamp>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t<p>Posted by \'>, <Variable Node: instance.submitter>, <TextNode: u\'</p>\\n\\t\\t\\t\\t\\t\\t\\t</header>\\n\\t\\t\\t\'>, <Variable Node: instance.vote_count>, <TextNode: u\'</a></li\\t\\t\\t\\t\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<div class="con\'>, <Variable Node: instance.content|safe>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <For Node: for comment in comments, tail_len: 25>, <TextNode: u\'\\n\\n\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\n\\t\\t\\t\\t\\t\\t\\t\'>]>}]'
+Exception while resolving variable 'instance' in template 'blogapp/detail.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [instance] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'csrf_token\': <SimpleLazyObject: <function _get_val at 0x0370A870>>, \'user\': <SimpleLazyObject: <function <lambda> at 0x03701330>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x037331B0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'WARNING\': 30, \'SUCCESS\': 25, \'ERROR\': 40}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x036F5B10>, u\'request\': <WSGIRequest: POST \'/vote/19/\'>}, {}, {\'block\': <Block Node: content. Contents: [<TextNode: u\'\\n\\n<div id="content">\\n\\t<di\'>, <Variable Node: instance.title>, <TextNode: u\'</h2>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <Variable Node: instance.timestamp>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t<p>Posted by \'>, <Variable Node: instance.submitter>, <TextNode: u\'</p>\\n\\t\\t\\t\\t\\t\\t\\t</header>\\n\\t\\t\\t\'>, <Variable Node: instance.vote_count>, <TextNode: u\'</a></li\\t\\t\\t\\t\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<div class="con\'>, <Variable Node: instance.content|safe>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <For Node: for comment in comments, tail_len: 25>, <TextNode: u\'\\n\\n\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\n\\t\\t\\t\\t\\t\\t\\t\'>]>}]'
+Exception while resolving variable 'instance' in template 'blogapp/detail.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [instance] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'csrf_token\': <SimpleLazyObject: <function _get_val at 0x0370A870>>, \'user\': <SimpleLazyObject: <function <lambda> at 0x03701330>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x037331B0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'WARNING\': 30, \'SUCCESS\': 25, \'ERROR\': 40}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x036F5B10>, u\'request\': <WSGIRequest: POST \'/vote/19/\'>}, {}, {\'block\': <Block Node: content. Contents: [<TextNode: u\'\\n\\n<div id="content">\\n\\t<di\'>, <Variable Node: instance.title>, <TextNode: u\'</h2>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <Variable Node: instance.timestamp>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t<p>Posted by \'>, <Variable Node: instance.submitter>, <TextNode: u\'</p>\\n\\t\\t\\t\\t\\t\\t\\t</header>\\n\\t\\t\\t\'>, <Variable Node: instance.vote_count>, <TextNode: u\'</a></li\\t\\t\\t\\t\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<div class="con\'>, <Variable Node: instance.content|safe>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <For Node: for comment in comments, tail_len: 25>, <TextNode: u\'\\n\\n\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\n\\t\\t\\t\\t\\t\\t\\t\'>]>}]'
+Exception while resolving variable 'instance' in template 'blogapp/detail.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [instance] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'csrf_token\': <SimpleLazyObject: <function _get_val at 0x0370A870>>, \'user\': <SimpleLazyObject: <function <lambda> at 0x03701330>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x037331B0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'WARNING\': 30, \'SUCCESS\': 25, \'ERROR\': 40}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x036F5B10>, u\'request\': <WSGIRequest: POST \'/vote/19/\'>}, {}, {\'block\': <Block Node: content. Contents: [<TextNode: u\'\\n\\n<div id="content">\\n\\t<di\'>, <Variable Node: instance.title>, <TextNode: u\'</h2>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <Variable Node: instance.timestamp>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t<p>Posted by \'>, <Variable Node: instance.submitter>, <TextNode: u\'</p>\\n\\t\\t\\t\\t\\t\\t\\t</header>\\n\\t\\t\\t\'>, <Variable Node: instance.vote_count>, <TextNode: u\'</a></li\\t\\t\\t\\t\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<div class="con\'>, <Variable Node: instance.content|safe>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <For Node: for comment in comments, tail_len: 25>, <TextNode: u\'\\n\\n\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\n\\t\\t\\t\\t\\t\\t\\t\'>]>}]'
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'ax8ys4vjr2selow6uhk9wdqyzwlpr03m' AND "django_session"."expire_date" > '2016-07-16 11:52:58.870000'); args=('ax8ys4vjr2selow6uhk9wdqyzwlpr03m', u'2016-07-16 11:52:58.870000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+Exception while resolving variable 'comment_form' in template 'blogapp/detail.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [comment_form] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'csrf_token\': <SimpleLazyObject: u\'J9xRefyzm8KhNFMFWIgvRSxpiHofounM\'>, \'user\': <SimpleLazyObject: <User: deven>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x037331B0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'WARNING\': 30, \'SUCCESS\': 25, \'ERROR\': 40}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x036F5B10>, u\'request\': <WSGIRequest: POST \'/vote/19/\'>}, {}, {\'block\': <Block Node: content. Contents: [<TextNode: u\'\\n\\n<div id="content">\\n\\t<di\'>, <Variable Node: instance.title>, <TextNode: u\'</h2>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <Variable Node: instance.timestamp>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t<p>Posted by \'>, <Variable Node: instance.submitter>, <TextNode: u\'</p>\\n\\t\\t\\t\\t\\t\\t\\t</header>\\n\\t\\t\\t\'>, <Variable Node: instance.vote_count>, <TextNode: u\'</a></li\\t\\t\\t\\t\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<div class="con\'>, <Variable Node: instance.content|safe>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <For Node: for comment in comments, tail_len: 25>, <TextNode: u\'\\n\\n\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\n\\t\\t\\t\\t\\t\\t\\t\'>]>}]'
+Exception while resolving variable 'include_media' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [include_media] in u"[{'False': False, 'None': None, 'True': True}, {'None': None, 'False': False, 'form': '', 'form_show_labels': True, 'label_class': '', 'form_show_errors': True, 'field_class': '', 'True': True}]"
+Exception while resolving variable 'non_field_errors' in template 'bootstrap3/uni_form.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u''
+Exception while resolving variable 'comments' in template 'blogapp/detail.html'.
+Traceback (most recent call last):
+  File "F:\Online study\django\test_env6\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [comments] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'csrf_token\': <SimpleLazyObject: u\'J9xRefyzm8KhNFMFWIgvRSxpiHofounM\'>, \'user\': <SimpleLazyObject: <User: deven>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x037331B0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'WARNING\': 30, \'SUCCESS\': 25, \'ERROR\': 40}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x036F5B10>, u\'request\': <WSGIRequest: POST \'/vote/19/\'>}, {}, {\'block\': <Block Node: content. Contents: [<TextNode: u\'\\n\\n<div id="content">\\n\\t<di\'>, <Variable Node: instance.title>, <TextNode: u\'</h2>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <Variable Node: instance.timestamp>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t<p>Posted by \'>, <Variable Node: instance.submitter>, <TextNode: u\'</p>\\n\\t\\t\\t\\t\\t\\t\\t</header>\\n\\t\\t\\t\'>, <Variable Node: instance.vote_count>, <TextNode: u\'</a></li\\t\\t\\t\\t\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<div class="con\'>, <Variable Node: instance.content|safe>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <IfNode>, <TextNode: u\'\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t\\t\\t\\t\\t\'>, <For Node: for comment in comments, tail_len: 25>, <TextNode: u\'\\n\\n\\t\\t\\t\\t\\t\\t\\t\\t</div>\\n\\n\\t\\t\\t\\t\\t\\t\\t\'>]>}, {}]'

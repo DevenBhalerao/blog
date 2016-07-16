@@ -15,10 +15,12 @@ from votes.models import Vote
 from comments.forms import CommentForm
 from votes.forms import VoteForm
 from django.contrib.contenttypes.models import ContentType
-
+import logging
 from .models import Post
 from .forms import PostForm
 
+
+logger = logging.getLogger(__name__)
 
 class IndexView(ListView):
     template_name = 'blogapp/index.html'
@@ -69,9 +71,7 @@ def post_detail(request, slug=None):
     initial_data = {
         "content_type": instance.get_content_type,
         "object_id": instance.id,
-    }
-    print "initial data is "
-    print initial_data
+    }    
     comment_form = CommentForm(request.POST or None, initial=initial_data)
     if comment_form.is_valid() and request.user.is_authenticated():
         c_type = comment_form.cleaned_data.get("content_type")
@@ -119,17 +119,21 @@ def post_detail(request, slug=None):
     return render(request, "blogapp/detail.html", context)
 
 
-def vote_handler(request, slug=None):
+def vote_handler(request, id=None):    
     if "upvote_form_comment" in request.POST:
-        content_type = Comment
+        content_type = Comment        
+        logger.debug("comment upvoted")
+
     else:
         content_type = Post
-    instance = get_object_or_404(content_type, id=upvoted_object_id)
-    comments = Comment.objects.filter_by_instance(instance)
-    initial_data = {
-        "content_type": instance.get_content_type,
-        "object_id": instance.id,
-    }
+        logger.debug("comment upvoted")
+    return render(request, "blogapp/detail.html", {})
+    # instance = get_object_or_404(content_type, id=upvoted_object_id)
+    # comments = Comment.objects.filter_by_instance(instance)
+    # initial_data = {
+    #     "content_type": instance.get_content_type,
+    #     "object_id": instance.id,
+    # }
 
 # class CreateView(FormView):
 #     form_class = PostForm

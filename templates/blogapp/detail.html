@@ -71,7 +71,7 @@
 										<br/>
 										<footer>
 
-											<form action="." method="POST" id="upvote_form">
+											<form action="{% url 'blogapp:vote_handler' id=comment.id %}" method="POST" id="upvote_form">
 												{% csrf_token %}
 												<input type="hidden" name="user" value="{{request.user}}">
 												<input type="hidden" name="content_type_upvote" value="{{ comment.get_content_type }}">												
