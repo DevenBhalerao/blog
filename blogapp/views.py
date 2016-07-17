@@ -116,26 +116,21 @@ def post_detail(request, slug=None):
     return render(request, "blogapp/detail.html", context)
 
 
-def vote_handler(request, id=None):    
-    if "upvote_form_comment" in request.POST:
-        content_type = Comment
-        logger.debug("id of comment upvoted is {id}".format(id=id))
-        vote_form = VoteForm(request.POST or None)
-        if vote_form.is_valid() and request.user.is_authenticated():
-            c_type = vote_form.cleaned_data.get("content_type_upvote")
-            content_type = ContentType.objects.get(model=c_type)
-            object_id = vote_form.cleaned_data.get("object_id_upvote")
-            new_vote, created = Vote.objects.get_or_create(
-                user=request.user,
-                content_type=content_type,
-                object_id=object_id,
-            )
-            if created:
-                logger.debug("new vote created for {content_type}  with parent id {id} and {user} "
-                    .format(content_type=content_type, id=new_vote.object_id, user=request.user))
-    else:
-        content_type = Post
-        logger.debug("id of post upvoted is {id}".format(id=id))
+def vote_handler(request, id=None):
+    vote_form = VoteForm(request.POST or None)
+    if vote_form.is_valid() and request.user.is_authenticated():
+        c_type = vote_form.cleaned_data.get("content_type_upvote")
+        content_type = ContentType.objects.get(model=c_type)
+        object_id = vote_form.cleaned_data.get("object_id_upvote")
+        new_vote, created = Vote.objects.get_or_create(
+            user=request.user,
+            content_type=content_type,
+            object_id=object_id,
+        )
+        if created:
+            logger.debug(
+                "new vote created for {content_type} with parent id {id} and {user}"
+            .format(content_type=content_type, id=new_vote.object_id, user=request.user))
     return render(request, "blogapp/detail.html", {})
     # instance = get_object_or_404(content_type, id=upvoted_object_id)
     # comments = Comment.objects.filter_by_instance(instance)
