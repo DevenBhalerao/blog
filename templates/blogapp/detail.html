@@ -21,14 +21,14 @@
 							</header>
 							<div class="info">								
 								<ul class="stats">
-									<li>
-
-										<form action="/vote/{{instance.id}}/" method="POST" id="upvote_form_post">
+									<li>			
+										 <!--<form action="/vote/{{instance.id}}/" method="POST" id="upvote_form_post" > 		-->								
+										 <form action="{% url 'blogapp:vote_handler' %}" method="POST" id="upvote_form_post" > 
 											{% csrf_token %}
 											<input type="hidden" name="user" value="{{request.user}}">
 											<input type="hidden" name="content_type_upvote" value="{{ instance.get_content_type }}">												
 											<input type="hidden" name="object_id_upvote" value="{{ instance.get_id }}">					
-											<button type="submit" class="icon fa-heart button-link" name="upvote_form_post" value="Submit"> &nbsp{{ instance.vote_count }}</button>
+											<button type="submit" class="icon fa-heart button-link" form="upvote_form_post" name="upvote_form_post" value="Submit"> &nbsp{{ instance.vote_count }}</button>
 										</form>
 
 									</li>									
@@ -70,12 +70,13 @@
 									<br/>
 									<footer>
 
-										<form action="{% url 'blogapp:vote_handler' id=comment.get_id %}" method="POST" id="upvote_form_comment">
+										<form action="{% url 'blogapp:vote_handler' %}" method="POST" id="upvote_form_comment">
 											{% csrf_token %}
 											<input type="hidden" name="user" value="{{request.user}}">
 											<input type="hidden" name="content_type_upvote" value="{{ comment.get_content_type }}">												
 											<input type="hidden" name="object_id_upvote" value="{{ comment.get_id }}">					
-											<button type="submit" class="icon fa-heart button-link" name="upvote_form_comment" value="Submit"> &nbsp{{ comment.vote_count }}</button>
+											<button type="submit" class="icon fa-heart button-link" name="upvote_form_comment"
+											form="upvote_form_comment" value="Submit"> &nbsp{{ comment.vote_count }}</button>
 										</form>
 										|
 										<small>via {{ comment.user }} | {{ comment.timestamp|timesince }} ago

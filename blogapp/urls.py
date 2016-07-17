@@ -13,9 +13,11 @@ urlpatterns = [
     # url(r'^$', views.IndexView.as_view(), name='list'),
     url(r'^$', post_list, name='list'),
     url(r'^create/$', post_create),
+    url(r'^vote/$', views.vote_handler, name='vote_handler'),
     url(r'^(?P<slug>[\w-]+)/$', views.post_detail, name='detail'),
     url(r'^(?P<slug>[\w-]+)/delete/$', views.DeleteView.as_view()),
     url(r'^(?P<slug>[\w-]+)/edit/$', views.UpdateView.as_view(), name='edit'),
-    url(r'^vote/(?P<id>[0-9]+)/$', views.vote_handler, name='vote_handler'),
+    # Note : form for upvoting posts has been hardcoded to below url    
     
+
 ]

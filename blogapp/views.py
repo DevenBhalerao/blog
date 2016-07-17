@@ -7,8 +7,8 @@ from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.utils import timezone
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.shortcuts import render, get_object_or_404
+from django.http import  HttpResponseRedirect, Http404
 from django.contrib.auth.decorators import login_required
 
 from comments.models import Comment
@@ -19,7 +19,6 @@ from django.contrib.contenttypes.models import ContentType
 from comments.forms import CommentForm
 from votes.forms import VoteForm
 from .forms import PostForm
-
 import logging
 
 logger = logging.getLogger(__name__)
@@ -116,7 +115,8 @@ def post_detail(request, slug=None):
     return render(request, "blogapp/detail.html", context)
 
 
-def vote_handler(request, id=None):
+def vote_handler(request):  
+    # logger.debug(request.POST)  
     vote_form = VoteForm(request.POST or None)
     if vote_form.is_valid() and request.user.is_authenticated():
         c_type = vote_form.cleaned_data.get("content_type_upvote")
@@ -131,6 +131,8 @@ def vote_handler(request, id=None):
             logger.debug(
                 "new vote created for {content_type} with parent id {id} and {user}"
             .format(content_type=content_type, id=new_vote.object_id, user=request.user))
+        # else:
+            # logger.debug("not created {id}".format(id=object_id))
     return render(request, "blogapp/detail.html", {})
     # instance = get_object_or_404(content_type, id=upvoted_object_id)
     # comments = Comment.objects.filter_by_instance(instance)

@@ -7,6 +7,9 @@ from votes.models import Vote
 
 # Create your models here.
 # from blogapp.models import Post
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class CommentManager(models.Manager):
@@ -58,7 +61,10 @@ class Comment(models.Model):
     @property
     def vote_count(self):
         instance = self
+        logger.debug("the comment is {no}".format(no=instance.id))
         votes = Vote.objects.filter_by_instance(instance)
+        if instance.id == 21:
+            logger.debug("the votes is {no}".format(no=len(votes)))
         return len(votes)
 
     @property

@@ -5,7 +5,9 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.conf import settings
 
 # Create your models here.
+import logging
 
+logger = logging.getLogger(__name__)
 
 class VoteManager(models.Manager):
 
@@ -16,6 +18,8 @@ class VoteManager(models.Manager):
             content_type=content_type,
             object_id=obj_id
         )
+        if obj_id == 21:
+            logger.debug(qs)
         return qs
 
 
