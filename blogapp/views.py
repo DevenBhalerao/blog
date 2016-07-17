@@ -10,15 +10,17 @@ from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth.decorators import login_required
+
 from comments.models import Comment
 from votes.models import Vote
+from .models import Post
+from django.contrib.contenttypes.models import ContentType
+
 from comments.forms import CommentForm
 from votes.forms import VoteForm
-from django.contrib.contenttypes.models import ContentType
-import logging
-from .models import Post
 from .forms import PostForm
 
+import logging
 
 logger = logging.getLogger(__name__)
 
@@ -75,10 +77,6 @@ def post_detail(request, slug=None):
     comment_form = CommentForm(request.POST or None, initial=initial_data)
     if comment_form.is_valid() and request.user.is_authenticated():
         c_type = comment_form.cleaned_data.get("content_type")
-        print "cleaned data is"
-        print comment_form.cleaned_data
-        print "ctype is"
-        print c_type
         content_type = ContentType.objects.get(model=c_type)
         object_id = comment_form.cleaned_data.get("object_id")
         content_data = comment_form.cleaned_data.get("content")
@@ -105,8 +103,7 @@ def post_detail(request, slug=None):
             content=content_data,
             parent=parent_obj,
         )
-        if created:
-            print new_comment
+        if created:            
             return HttpResponseRedirect(
                 new_comment.content_object.get_absolute_url()
             )
@@ -121,12 +118,24 @@ def post_detail(request, slug=None):
 
 def vote_handler(request, id=None):    
     if "upvote_form_comment" in request.POST:
-        content_type = Comment        
-        logger.debug("comment upvoted")
-
+        content_type = Comment
+        logger.debug("id of comment upvoted is {id}".format(id=id))
+        vote_form = VoteForm(request.POST or None)
+        if vote_form.is_valid() and request.user.is_authenticated():
+            c_type = vote_form.cleaned_data.get("content_type_upvote")
+            content_type = ContentType.objects.get(model=c_type)
+            object_id = vote_form.cleaned_data.get("object_id_upvote")
+            new_vote, created = Vote.objects.get_or_create(
+                user=request.user,
+                content_type=content_type,
+                object_id=object_id,
+            )
+            if created:
+                logger.debug("new vote created for {content_type}  with parent id {id} and {user} "
+                    .format(content_type=content_type, id=new_vote.object_id, user=request.user))
     else:
         content_type = Post
-        logger.debug("comment upvoted")
+        logger.debug("id of post upvoted is {id}".format(id=id))
     return render(request, "blogapp/detail.html", {})
     # instance = get_object_or_404(content_type, id=upvoted_object_id)
     # comments = Comment.objects.filter_by_instance(instance)

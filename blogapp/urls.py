@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^(?P<slug>[\w-]+)/$', views.post_detail, name='detail'),
     url(r'^(?P<slug>[\w-]+)/delete/$', views.DeleteView.as_view()),
     url(r'^(?P<slug>[\w-]+)/edit/$', views.UpdateView.as_view(), name='edit'),
-    url(r'^vote/(?P<id>\d+)/$', views.vote_handler, name='vote_handler'),
+    url(r'^vote/(?P<id>[0-9]+)/$', views.vote_handler, name='vote_handler'),
+    
 ]

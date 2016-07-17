@@ -145,9 +145,19 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s || %(asctime)s ==>  %(message)s'
+        },
+    },
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
+            'formatter': 'simple'
         },
     },
     'loggers': {
@@ -158,6 +168,7 @@ LOGGING = {
         'blogapp': {
             'handlers': ['console'],
             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+
         },
     },
 }

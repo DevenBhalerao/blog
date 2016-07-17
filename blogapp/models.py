@@ -52,6 +52,10 @@ class Post(models.Model):
         content_type = ContentType.objects.get_for_model(instance.__class__)
         return content_type
 
+    @property
+    def get_id(self):
+        return self.id
+
 
 def create_slug(instance, new_slug=None):
     slug = slugify(instance.title)
