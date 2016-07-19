@@ -57,6 +57,45 @@
 
 		})
 
+
+		jQuery(document).ready(function($) 
+		{
+			$(".upvote_form_post").submit(function(e) 
+			{
+				e.preventDefault(); 
+				var btn = $("button", this);
+				var l_id = $(".hidden_id", this).val();
+				btn.attr('disabled', true);
+				$.post("/vote/", $(this).serializeArray(),
+					function(data) {
+						if(data["voteobj"]) {
+							btn.text("-");
+						}
+						else {
+							btn.text("+");
+						}
+					});
+				btn.attr('disabled', false);
+			});
+		});
+
+		jQuery(document).ready(function($) 
+		{
+			$(".upvote_form_comment").submit(function(e) 
+			{
+				e.preventDefault(); 
+				var btn = $("button", this);
+				var l_id = $(".hidden_id", this).val();
+				btn.attr('disabled', true);
+				$.post("/vote/", $(this).serializeArray(),
+					function(data) {
+						
+					});
+				btn.attr('disabled', false);
+			});
+		});
+
+
 	</script>
 
 
