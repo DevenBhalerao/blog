@@ -8,7 +8,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
-from django.http import  HttpResponseRedirect, Http404
+from django.http import  HttpResponseRedirect, Http404, HttpResponse
 from django.contrib.auth.decorators import login_required
 
 from comments.models import Comment
@@ -22,6 +22,7 @@ from .forms import PostForm
 import logging
 
 logger = logging.getLogger(__name__)
+
 
 class IndexView(ListView):
     template_name = 'blogapp/index.html'
@@ -72,7 +73,7 @@ def post_detail(request, slug=None):
     initial_data = {
         "content_type": instance.get_content_type,
         "object_id": instance.id,
-    }    
+    }
     comment_form = CommentForm(request.POST or None, initial=initial_data)
     if comment_form.is_valid() and request.user.is_authenticated():
         c_type = comment_form.cleaned_data.get("content_type")
@@ -102,7 +103,7 @@ def post_detail(request, slug=None):
             content=content_data,
             parent=parent_obj,
         )
-        if created:            
+        if created:
             return HttpResponseRedirect(
                 new_comment.content_object.get_absolute_url()
             )
@@ -115,8 +116,8 @@ def post_detail(request, slug=None):
     return render(request, "blogapp/detail.html", context)
 
 
-def vote_handler(request):  
-    # logger.debug(request.POST)  
+def vote_handler(request):
+    logger.debug(request.POST)
     vote_form = VoteForm(request.POST or None)
     if vote_form.is_valid() and request.user.is_authenticated():
         c_type = vote_form.cleaned_data.get("content_type_upvote")
@@ -130,10 +131,13 @@ def vote_handler(request):
         if created:
             logger.debug(
                 "new vote created for {content_type} with parent id {id} and {user}"
-            .format(content_type=content_type, id=new_vote.object_id, user=request.user))
-        # else:
-            # logger.debug("not created {id}".format(id=object_id))
-    return render(request, "blogapp/detail.html", {})
+                .format(content_type=content_type,
+                        id=new_vote.object_id, user=request.user)
+            )
+        else:
+             logger.debug("already voted, deleteing {id}".format(id=object_id))
+             new_vote.delete()
+    return HttpResponse('')
     # instance = get_object_or_404(content_type, id=upvoted_object_id)
     # comments = Comment.objects.filter_by_instance(instance)
     # initial_data = {

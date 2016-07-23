@@ -9,7 +9,9 @@ from django.contrib.auth.models import User
 # Create your models here.
 from comments.models import Comment
 from votes.models import Vote
+import logging
 
+logger = logging.getLogger(__name__)
 
 class Post(models.Model):
     submitter = models.ForeignKey(User, default=1)

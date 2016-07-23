@@ -61,7 +61,7 @@ class Comment(models.Model):
     @property
     def vote_count(self):
         instance = self
-        logger.debug("the comment is {no}".format(no=instance.id))
+        # logger.debug("the comment is {no}".format(no=instance.id))
         votes = Vote.objects.filter_by_instance(instance)
         if instance.id == 21:
             logger.debug("the votes is {no}".format(no=len(votes)))
@@ -74,5 +74,5 @@ class Comment(models.Model):
         return content_type
 
     @property
-    def get_id(self):        
+    def get_id(self):
         return self.id

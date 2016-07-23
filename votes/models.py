@@ -9,11 +9,12 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class VoteManager(models.Manager):
 
     def filter_by_instance(self, instance):
         content_type = ContentType.objects.get_for_model(instance.__class__)
-        obj_id = instance.id        
+        obj_id = instance.id
         qs = super(VoteManager, self).filter(
             content_type=content_type,
             object_id=obj_id

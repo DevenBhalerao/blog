@@ -151,7 +151,7 @@ LOGGING = {
             'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
         },
         'simple': {
-            'format': '%(levelname)s || %(asctime)s ==>  %(message)s'
+            'format': '%(levelname)s || called by %(funcName)s  ||%(asctime)s ==>  %(message)s'
         },
     },
     'handlers': {
