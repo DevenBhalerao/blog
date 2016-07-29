@@ -61,7 +61,7 @@
 		jQuery(document).ready(function($) 
 		{
 			$("#upvote_form_post").submit(function(e) 
-			{	console.log("triggered jquey post");
+				{	console.log("triggered jquey post");
 				e.preventDefault(); 
 				var btn = $("button", this);				
 				btn.attr('disabled', true);
@@ -69,7 +69,7 @@
 					function(data) {
 						var current_vote_post =  $(document.activeElement).text();
 						if($(document.activeElement).css('color') == 'rgb(255, 0, 0)'){
-							//console.log("already upvoted");
+							console.log("already upvoted" + $(document.activeElement));
 							current_vote_post = parseInt(current_vote_post, 10) -1;							
 							//console.log(current_vote_post);
 							$(document.activeElement).html("&nbsp; " + current_vote_post);								
@@ -79,7 +79,7 @@
 
 						}
 						else if($(document.activeElement).css('color') == 'rgb(128, 128, 128)'){
-							//console.log("not upvoted");			
+							console.log("not upvoted" + $(document.activeElement));			
 							current_vote_post = parseInt(current_vote_post, 10) + 1;							
 							//console.log(current_vote_post);
 							$(document.activeElement).html("&nbsp; " + current_vote_post);												
@@ -95,32 +95,39 @@
 			});
 		});
 
-		jQuery(document).ready(function($) 
-		{
-			$("#upvote_form_comment").submit(function(e) 
-			{
-				e.preventDefault(); 
-				var btn = $("button", this);
 
+
+
+
+		jQuery(document).ready(function($) 
+		{	
+
+
+			$(".button-link").click(function(e)
+				{	
+				e.preventDefault(); 
+				var form_id = $(this).attr('form');
+				//console.log("#" + form_id);
+				var btn = $("button", this);
+				//console.log($(this));
 				btn.attr('disabled', true);
-				$.post("/vote/", $(this).serializeArray(),
+				//console.log($(this).serialize());
+				$.post("/vote/", $("#" + form_id).serializeArray(),
 					function(data) {
 						var current_vote_post =  $(document.activeElement).text();
 						if($(document.activeElement).css('color') == 'rgb(255, 0, 0)'){
-							//console.log("already upvoted");
-							current_vote_post = parseInt(current_vote_post, 10) -1;							
+							current_vote_post = parseInt(current_vote_post, 10) -1;
 							//console.log(current_vote_post);
-							$(document.activeElement).html("&nbsp; " + current_vote_post);								
+							$(document.activeElement).html("&nbsp; " + current_vote_post);
 							$(document.activeElement).removeClass('upvoted');
 							$(document.activeElement).addClass('not_voted');
 							
 
 						}
 						else if($(document.activeElement).css('color') == 'rgb(128, 128, 128)'){
-							//console.log("not upvoted");			
-							current_vote_post = parseInt(current_vote_post, 10) + 1;							
-							//console.log(current_vote_post);
-							$(document.activeElement).html("&nbsp; " + current_vote_post);												
+							current_vote_post = parseInt(current_vote_post, 10) + 1;		
+							//console.log(current_vote_post)
+							$(document.activeElement).html("&nbsp; " + current_vote_post);
 							$(document.activeElement).removeClass('not_voted');
 							$(document.activeElement).addClass('upvoted');
 							
@@ -128,8 +135,10 @@
 						}
 						
 					});
-				btn.attr('disabled', false);
+				btn.attr('disabled', false);	
+				
 			});
+			
 		});
 
 

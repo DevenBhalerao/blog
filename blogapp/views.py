@@ -123,6 +123,7 @@ def vote_handler(request):
         c_type = vote_form.cleaned_data.get("content_type_upvote")
         content_type = ContentType.objects.get(model=c_type)
         object_id = vote_form.cleaned_data.get("object_id_upvote")
+        logger.debug(object_id)
         new_vote, created = Vote.objects.get_or_create(
             user=request.user,
             content_type=content_type,

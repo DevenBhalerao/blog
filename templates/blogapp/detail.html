@@ -71,14 +71,14 @@
 									{{ comment.content }}
 									<br/>
 									<footer>
-
-										<form action="{% url 'blogapp:vote_handler' %}" method="POST" id="upvote_form_comment">
+										
+										<form action="{% url 'blogapp:vote_handler' %}" method="POST" id="upvote_form_comment_{{ forloop.counter }}">
 											{% csrf_token %}
 											<input type="hidden" name="user" value="{{request.user}}">
 											<input type="hidden" name="content_type_upvote" value="{{ comment.get_content_type }}">												
-											<input type="hidden" name="object_id_upvote" value="{{ comment.get_id }}">					
+											<input type="hidden" name="object_id_upvote" value="{{ comment.id }}">					
 											<button type="submit" class="icon fa-heart button-link {{  comment|has_voted:request.user }}" name="upvote_form_comment"
-											form="upvote_form_comment" value="Submit"> &nbsp{{ comment.vote_count }}</button>
+											form="upvote_form_comment_{{ forloop.counter }}" value="Submit"> &nbsp{{ comment.vote_count }}</button>
 										</form>
 										|
 										<small>via {{ comment.user }} | {{ comment.timestamp|timesince }} ago
