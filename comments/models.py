@@ -3,6 +3,7 @@ from django.conf import settings
 from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
+from django.apps import apps
 from votes.models import Vote
 
 # Create your models here.
@@ -73,4 +74,11 @@ class Comment(models.Model):
         content_type = ContentType.objects.get_for_model(instance.__class__)
         return content_type
 
-
+    @property
+    def get_post_slug(self):
+        instance = self
+        post = apps.get_model('blogapp', 'Post')
+        parent_post = post.objects.filter(id=instance.object_id)
+        post = parent_post[0]
+        # logger.debug(type(post))
+        return post.slug

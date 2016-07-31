@@ -1,0 +1,39 @@
+{% extends 'blogapp/base.html' %}
+{% load has_voted %}
+{% load urlify %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+
+<div id="content">
+	<div class="inner">
+		<article class="box post post-excerpt">
+			<header><h2> User Profile </h2>
+			</header>
+			<hr>
+			<h3> Liked comments </h3>
+			<ul>
+				{% for comment in liked_comments %}
+				<li><p><a href="{% url 'blogapp:detail' slug=comment.get_post_slug %}">"{{ comment.content|truncatechars:20 }}"</a>  by  {{ comment.user }}</p></li>
+				{% endfor %}
+				
+
+			</ul>
+			<hr>
+			<h3> Liked Posts </h3>
+			<ul>
+				{% for post in liked_posts %}
+				<li><p><a href="{% url 'blogapp:detail' slug=post.slug %}">"{{ post.title|truncatechars:20 }}"</a>  by  {{ post.submitter }}</p></li>
+				{% endfor %}
+				
+
+			</ul>
+			<hr>
+			<h3>Change Passwords</h3>
+		</article>
+	</div>
+</div>
+
+{% endblock content %}

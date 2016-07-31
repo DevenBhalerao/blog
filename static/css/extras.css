@@ -1,4 +1,5 @@
 .button-link {
+     
      background:none!important;
      border:none; 
      padding:0!important;
@@ -18,4 +19,9 @@
 
 :focus{
 	outline: none !important;
-};
+}
+
+.form-comment{
+     display: inline !important;
+}
+

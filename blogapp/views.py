@@ -31,6 +31,37 @@ class IndexView(ListView):
         return Post.objects.all()
 
 
+def account_page(request, user=None):
+    content_type_post = ContentType.objects.get_for_model(Post)
+    content_type_comment = ContentType.objects.get_for_model(Comment)
+    liked_comments_votes = Vote.objects.filter(
+        user=request.user,
+        content_type=content_type_comment
+    )
+    liked_posts_votes = Vote.objects.filter(
+        user=request.user,
+        content_type=content_type_post
+    )
+    liked_comments = list()
+    liked_posts = list()
+    for vote in liked_comments_votes:
+        comments = Comment.objects.filter(id=vote.object_id)
+        for comment in comments:
+            liked_comments.append(comment)
+        # logger.debug(liked_comments)
+    for vote in liked_posts_votes:
+        posts = Post.objects.filter(id=vote.object_id)
+        for post in posts:
+            liked_posts.append(post)
+        # logger.debug(liked_posts)    
+    context = {
+        "user": request.user,
+        "liked_comments": liked_comments,
+        "liked_posts": liked_posts,
+    }
+    return render(request, 'blogapp/account.html', context)
+
+
 # @login_required(login_url='/login/')
 def post_list(request):
     today = timezone.now().date()
