@@ -16,6 +16,8 @@ class PostForm(forms.ModelForm):
         ]
 
 
+
+
 # class LoginForm(forms.ModelForm):
 #     class Meta:
 #         model = User

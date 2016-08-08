@@ -15,7 +15,12 @@
 									if they get too long. You can also remove the <p> entirely if you don't
 									need a subtitle.
 								-->
+								
+								{% if request.user.is_authenticated %}
 								<h2><a href="{% url 'blogapp:detail' slug=object.slug %}">{{object.title}}</a></h2>
+								{% else %}
+								<h2><a href="{% url 'login' %}">{{object.title}}</a></h2>
+								{% endif %}
 								{{object.timestamp}}
 								<p>Posted by {{ object.submitter }}</p>
 							</header>
@@ -32,6 +37,7 @@
 									Note: You can change the number of list items in "stats" to whatever you want.
 								-->
 								<ul class="stats">
+								{% if request.user.is_authenticated %}
 									<li><form action="{% url 'blogapp:vote_handler' %}" method="POST" id="upvote_form_post_{{forloop.counter}}" > 
 										{% csrf_token %} 
 										<input type="hidden" name="user" value="{{request.user}}">
@@ -40,6 +46,10 @@
 										<button type="submit" class="icon fa-heart button-link 	{{  object|has_voted:request.user }}			
 										" form="upvote_form_post_{{forloop.counter}}" name="upvote_form_post_bt" value="Submit"> &nbsp{{ object.vote_count }}</button>
 									</form>
+								{% else %}
+									<button type="submit" class="icon fa-heart button-link not_voted "
+									name="upvote_form_post_bt" value="Submit"> &nbsp{{ object.vote_count }}</button>
+								{% endif %}
 								</li>
 								<!--<li><a href="#" class="icon fa-heart">{{ object.downvotes }}</a></li>-->
 							</ul>

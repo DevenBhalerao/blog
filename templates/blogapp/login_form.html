@@ -2,18 +2,30 @@
 {% load crispy_forms_tags %}
 
 
+{% block head_extra %}
+{{ form.media }}
+{% endblock head_extra %}
+
 {% block content %}
 
 
 <div id="content">
 	<div class="inner">
 
-		<form method = "Post" action="" enctype="multipart/form-data">
+		<form method = "Post" action="" enctype="multipart/form-data" class="create_acc_bt" >
 			{% csrf_token %}
 			{{form|crispy}}
+			<br/>
 			<input type="submit" value="Submit"> </input>
 		</form>
+		<form action="{% url 'register' %}" class="create_acc_bt">
+			<input type="submit" value="Create Account">
+		</form>
+		
 
 	</div>
 </div>
 {% endblock content %}
+
+
+

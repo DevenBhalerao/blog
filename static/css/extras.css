@@ -9,6 +9,7 @@
      text-shadow: none !important;
 }
 
+
 .upvoted {
 	color:red !important;
 }
@@ -21,7 +22,15 @@
 	outline: none !important;
 }
 
-.form-comment{
+.form-comment {
      display: inline !important;
 }
 
+.create_acc_bt {
+     margin-right: 30px;
+     display: inline !important;
+}
+
+.space_under_row > td {
+     padding-bottom: 50px;
+}

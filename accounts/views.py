@@ -22,7 +22,7 @@ def login_view(request):
         "form": form,
     }
     print context_data
-    return render(request, "blogapp/form.html", context_data)
+    return render(request, "blogapp/login_form.html", context_data)
 
 
 def register_view(request):

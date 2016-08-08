@@ -12,9 +12,9 @@ from .views import (
 urlpatterns = [
     # url(r'^$', views.IndexView.as_view(), name='list'),
     url(r'^$', post_list, name='list'),
-    url(r'^create/$', post_create),
+    url(r'^create/$', post_create, name='post_create'),
     url(r'^vote/$', views.vote_handler, name='vote_handler'),
-    url(r'^account/$', views.account_page, name='account_page'),
+    url(r'^account/(?P<user_id>[\d]+)/$', views.account_page, name='account_page'),
     url(r'^(?P<slug>[\w-]+)/$', views.post_detail, name='detail'),
     url(r'^(?P<slug>[\w-]+)/delete/$', views.DeleteView.as_view()),
     url(r'^(?P<slug>[\w-]+)/edit/$', views.UpdateView.as_view(), name='edit'),

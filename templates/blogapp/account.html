@@ -13,27 +13,70 @@
 			<header><h2> User Profile </h2>
 			</header>
 			<hr>
-			<h3> Liked comments </h3>
-			<ul>
-				{% for comment in liked_comments %}
-				<li><p><a href="{% url 'blogapp:detail' slug=comment.get_post_slug %}">"{{ comment.content|truncatechars:20 }}"</a>  by  {{ comment.user }}</p></li>
-				{% endfor %}
-				
+			
+			<table>
+				<tr class="space_under_row">
+					<td>
+						<h3> Liked comments </h3>
+						<ul>
+							{% for comment in liked_comments %}
+							<li><p><a href="{% url 'blogapp:detail' slug=comment.get_post_slug %}">"{{ comment.content|truncatechars:20 }}"</a>  by  <a href="{% url 'blogapp:account_page' user_id=comment.user.id  %}">{{ comment.user }}</a></p></li>
+							{% endfor %}
+						</ul>
+					</td>
 
-			</ul>
-			<hr>
-			<h3> Liked Posts </h3>
-			<ul>
-				{% for post in liked_posts %}
-				<li><p><a href="{% url 'blogapp:detail' slug=post.slug %}">"{{ post.title|truncatechars:20 }}"</a>  by  {{ post.submitter }}</p></li>
-				{% endfor %}
-				
+					<td>
+						<h3> Liked Posts </h3>
+						<ul>
+							{% for post in liked_posts %}
+							<li><p><a href="{% url 'blogapp:detail' slug=post.slug %}">"{{ post.title|truncatechars:20 }}"</a>  by  <a href="{% url 'blogapp:account_page' user_id=post.submitter.id  %}"> {{post.submitter}} </a></p></li>
+							{% endfor %}
+						</ul>
+					</td>
+				</tr>
 
-			</ul>
-			<hr>
-			<h3>Change Passwords</h3>
-		</article>
+				
+				<tr>
+					<td>
+						<h3> Submitted Posts </h3>
+						<ul>
+							{% for post in submitted_posts %}
+							<li><p><a href="{% url 'blogapp:detail' slug=post.slug %}">"{{ post.title|truncatechars:20 }}"</a></p></li>
+							{% endfor %}
+						</ul>
+					</td>
+					<td>
+						<div class="submitted_section">
+							<h3> Submitted Comments </h3>
+							<ul>
+								{% for comment in submitted_comments %}
+								<li><p><a href="{% url 'blogapp:detail' slug=comment.get_post_slug %}">"{{ comment.content|truncatechars:20 }}"</a></p></li>
+								{% endfor %}
+							</ul>
+						</td>
+					</tr>
+				</table>
+				<hr>
+				<h3>Change Password</h3>
+
+				<form action="." method="POST" id="change_password_form">
+					{% csrf_token %}
+					{{ change_password_form|crispy }}
+					<br/>
+					<button type="submit" form="change_password_form" value="Submit">Submit</button></input>
+				</form>
+
+				{% if messages %}
+				<ul class="messages">
+					{% for message in messages %}
+					<li>{{ message }}</li>
+					{% endfor %}
+				</ul>
+				{% endif %}
+
+
+			</article>
+		</div>
 	</div>
-</div>
 
-{% endblock content %}
+	{% endblock content %}

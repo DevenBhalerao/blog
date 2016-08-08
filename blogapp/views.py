@@ -1,16 +1,16 @@
-from django.views.generic import (DetailView, ListView, DeleteView,
-  FormView)
-from django.core.urlresolvers import reverse_lazy, reverse
-from django.contrib.auth.decorators import login_required
+from django.views.generic import (DeleteView, FormView)
+from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.utils import timezone
-from django.shortcuts import render, get_object_or_404
-from django.http import  HttpResponseRedirect, Http404, HttpResponse
-from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseRedirect, Http404, HttpResponse
 
+
+from accounts.forms import ChangePasswordForm
 from comments.models import Comment
 from votes.models import Vote
 from .models import Post
@@ -24,23 +24,23 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class IndexView(ListView):
-    template_name = 'blogapp/index.html'
-
-    def get_queryset(self):
-        return Post.objects.all()
-
-
-def account_page(request, user=None):
+def account_page(request, user_id=None):
     content_type_post = ContentType.objects.get_for_model(Post)
     content_type_comment = ContentType.objects.get_for_model(Comment)
+    user = User.objects.get(id=user_id)
     liked_comments_votes = Vote.objects.filter(
-        user=request.user,
+        user=user,
         content_type=content_type_comment
     )
     liked_posts_votes = Vote.objects.filter(
-        user=request.user,
+        user=user,
         content_type=content_type_post
+    )
+    submitted_posts = Post.objects.filter(
+        submitter=user,
+    )
+    submitted_comments = Comment.objects.filter(
+        user=user,
     )
     liked_comments = list()
     liked_posts = list()
@@ -53,11 +53,29 @@ def account_page(request, user=None):
         posts = Post.objects.filter(id=vote.object_id)
         for post in posts:
             liked_posts.append(post)
-        # logger.debug(liked_posts)    
+    form = ChangePasswordForm(request.POST or None)
+    if form.is_valid():
+        user = request.user
+        form_user = form.cleaned_data.get('username')
+        if user.username != form_user:
+            messages.add_message(
+                request, messages.INFO,
+                'You can only change your own password'
+            )
+        else:
+            password = form.cleaned_data.get('password_new')
+            user.set_password(password)
+            user.save()
+            messages.add_message(
+                request, messages.INFO, 'Password changed Succesfully!')
+        return redirect("/")
     context = {
-        "user": request.user,
+        "user": user,
         "liked_comments": liked_comments,
         "liked_posts": liked_posts,
+        "change_password_form": form,
+        "submitted_posts": submitted_posts,
+        "submitted_comments": submitted_comments,
     }
     return render(request, 'blogapp/account.html', context)
 
@@ -66,7 +84,7 @@ def account_page(request, user=None):
 def post_list(request):
     today = timezone.now().date()
     queryset_list = Post.objects.all()  # .order_by("-timestamp")
-    query = request.GET.get("q")
+    query = request.GET.get("search")
     if query:
         queryset_list = queryset_list.filter(
             Q(title__icontains=query) |
@@ -94,10 +112,6 @@ def post_list(request):
     return render(request, 'blogapp/index.html', context)
 
 
-# class DetailView(DetailView):
-#     model = Post
-#     template_name = 'blogapp/detail.html'
-
 def post_detail(request, slug=None):
     instance = get_object_or_404(Post, slug=slug)
     comments = Comment.objects.filter_by_instance(instance)
@@ -113,20 +127,14 @@ def post_detail(request, slug=None):
         content_data = comment_form.cleaned_data.get("content")
         parent_obj = None
         try:
-            # print request.POST.get("parent_id")
             parent_id = int(request.POST.get("parent_id"))
-            # print "exception not thrown"
         except:
-            # print "exception thrown"
             parent_id = None
         if parent_id:
-            # print "parent_id exists"
-            # print parent_id
             parent_qs = Comment.objects.filter(id=parent_id)
             # print parent_qs
             if parent_qs.exists() and parent_qs.count() == 1:
                 parent_obj = parent_qs.first()
-                # print parent_obj
         new_comment, created = Comment.objects.get_or_create(
             user=request.user,
             content_type=content_type,
@@ -148,13 +156,11 @@ def post_detail(request, slug=None):
 
 
 def vote_handler(request):
-    logger.debug(request.POST)
     vote_form = VoteForm(request.POST or None)
     if vote_form.is_valid() and request.user.is_authenticated():
         c_type = vote_form.cleaned_data.get("content_type_upvote")
         content_type = ContentType.objects.get(model=c_type)
         object_id = vote_form.cleaned_data.get("object_id_upvote")
-        logger.debug(object_id)
         new_vote, created = Vote.objects.get_or_create(
             user=request.user,
             content_type=content_type,
@@ -167,42 +173,20 @@ def vote_handler(request):
                         id=new_vote.object_id, user=request.user)
             )
         else:
-             logger.debug("already voted, deleteing {id}".format(id=object_id))
-             new_vote.delete()
+            logger.debug("already voted, deleteing {id}".format(id=object_id))
+            new_vote.delete()
     return HttpResponse('')
-    # instance = get_object_or_404(content_type, id=upvoted_object_id)
-    # comments = Comment.objects.filter_by_instance(instance)
-    # initial_data = {
-    #     "content_type": instance.get_content_type,
-    #     "object_id": instance.id,
-    # }
-
-# class CreateView(FormView):
-#     form_class = PostForm
-#     template_name = 'blogapp/form.html'
-#     fields = ["title",
-#               "content",
-#               "image",
-#               "url",
-#               ]
-
-#     def form_valid(self, form):
-#         new_post = form.save()
-#         print new_post
-#         return reverse('blogapp:detail', kwargs={"slug": new_post.slug})
 
 
 def post_create(request):
-    if not request.user.is_staff or not request.user.is_superuser:
-        raise Http404
-        form = PostForm(request.POST or None, request.FILES or None)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.user = request.user
-            instance.save()
-            return HttpResponseRedirect(instance.get_absolute_url())
-            context = {"form": form, }
-            return render(request, 'blogapp/form.html', context)
+    form = PostForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.user = request.user
+        instance.save()
+        return HttpResponseRedirect(instance.get_absolute_url())
+    context = {"form": form, }
+    return render(request, 'blogapp/form.html', context)
 
 
 class UpdateView(FormView):

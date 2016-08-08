@@ -6,16 +6,22 @@
 	<!-- Nav -->
 	<nav id="nav">
 		<ul>
-			<li class="current"><a href="#">Latest Post</a></li>
+			<li class="current"><a href="{% url 'blogapp:list' %}">Home Page</a></li>
 			<li><a href="#">Archives</a></li>
-			<li><a href="#">About Me</a></li>
-			<li><a href="#">Contact Me</a></li>
+			{% if request.user.is_authenticated %}
+			<li><a href="{% url 'blogapp:account_page' user_id=request.user.id %}">My Account: <b>{{ request.user }}</b></a></li>
+			{% else %}
+			<li><a href="{% url 'login'  %}">Login</a></li>
+			{% endif %}
+			{% if request.user.is_authenticated %}
+			<li><a href="{% url 'logout'  %}">Logout</a></li>
+			{% endif %}
 		</ul>
 	</nav>
 
 	<!-- Search -->
 	<section class="box search">
-		<form method="post" action="#">
+		<form method="GET" action="{% url 'blogapp:list' %}">
 			<input type="text" class="text" name="search" placeholder="Search" />
 		</form>
 	</section>
@@ -23,10 +29,9 @@
 	<!-- Text -->
 	<section class="box text-style1">
 		<div class="inner">
-			<p>
-				<strong>Striped:</strong> A free and fully responsive HTML5 site
-				template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>
-			</p>
+			
+				<b><strong><a href="{% url 'blogapp:post_create' %}">Create post</a></strong></b>
+			
 		</div>
 	</section>
 
