@@ -15,16 +15,3 @@ class PostForm(forms.ModelForm):
             "image",
         ]
 
-
-
-
-# class LoginForm(forms.ModelForm):
-#     class Meta:
-#         model = User
-#         fields = [
-#             "username",
-#             "password",
-#             "email",
-#             "first_name",
-#             "last_name"
-#         ]
