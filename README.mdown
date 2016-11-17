@@ -1,0 +1,11 @@
+## Blog
+
+This is a website of content sharing system. 
+
+This website has the following features : 
+- Comment System
+- Upvote System
+- Post Creation
+
+Demo : 
+https://www.youtube.com/watch?v=f4rct-twlSo
